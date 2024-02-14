@@ -5,7 +5,6 @@ from human_resources import *
 from gaming import *
 
 
-
 def create_new_dir():
     new_folder = input("Name of your new folder: ")
     new_dir = Path(new_folder)
