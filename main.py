@@ -20,6 +20,7 @@ def project_type(path):
     select_folder = str(input("\nWhat kind of project do you want to create?:\nAnimation\nGaming\nhuman resources\n")).lower()
     if select_folder == "animation":
         animation(path)
+        
         pass
 
     elif select_folder == "gaming":
