@@ -1,3 +1,4 @@
+
 import pandas as pd
 import io
 import requests
@@ -12,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-image_path = Path('Image_data')
+image_path = Path('Images')
 image_path.mkdir(parents=True, exist_ok=True)
 
 driver = webdriver.Chrome()
@@ -46,14 +47,12 @@ if __name__ == "__main__":
         image_content = requests.get(b).content
         image_file= io.BytesIO(image_content)
         image = Image.open(image_file).convert("RGB")
-        image = image.resize((300,300), Image.ANTIALIAS)
-        pokemon_name = Path(b).name.split(".")[0]
-        
+        image = image.resize((300,300))
+        image = image.convert("RGBA")
         draw = ImageDraw.Draw(image)
-        font = ImageFont.truetype("arial.ttf", 24)  # Adjust font and size as needed
-        text_width, text_height = draw.textsize(pokemon_name, font=font)
-        text_x = (image.width - text_width) / 2
-        text_y = (image.height - text_height) / 2
-        draw.text((text_x, text_y), pokemon_name, font=font, fill=(255, 255, 255))
-        file_path = Path(image_path, hashlib.sha1(image_content).hexdigest()[:10] + ".png")
+        front = ImageFont.load_default()
+        pokemon_name = Path(b).name.split(".")[0]
+        draw.text((10,10), pokemon_name, fill="white")
+
+        file_path = Path(image_path, f"{hashlib.sha1(image_content).hexdigest()[:10]}_{pokemon_name}.png")
         image.save(file_path,"PNG", quality=80)
