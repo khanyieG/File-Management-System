@@ -21,16 +21,12 @@ def project_type(path):
     if select_folder == "animation":
         animation(path)
         
-        pass
-
     elif select_folder == "gaming":
         gaming(path)
-        pass
 
     elif select_folder == "human resources":
         human_resources(path)
-        pass
-
+    
     else:
         print("Incorrect input please choose the given names!")
         return project_type(path)

@@ -1,36 +1,60 @@
+
 import tkinter as tk
-from file_management import *
-import os
+from pathlib import Path
+from animation import *
+from gaming import *
+from human_resources import *
+
+
+def create_folder():
+    new_folder = folder_entry.get()  # Retrieve input from entry widget
+    new_dir = Path(new_folder)
+    try:
+        new_dir.mkdir(parents=True, exist_ok=True)
+        select_project_type(new_dir)
+        result_label.config(text=f"Folder created: {new_dir}")
+    except FileExistsError:
+        result_label.config(text=f"Folder {new_folder} already exists.")
+
+def select_project_type(path):
+    select_folder = project_type_var.get().lower()
+    if select_folder == "animation":
+        animation(path)
+    elif select_folder == "gaming":
+        gaming(path)
+
+    elif select_folder == "human resources":
+        human_resources(path)
+    else:
+        result_label.config(text="Incorrect input. Please choose the given options.")
 
 root = tk.Tk()
-root.title("File management system")
-root.geometry("350x300")
+root.title("Project Folder Creator")
+root.geometry("200x200")
 
-def browse_directory():
-    selected_dir = tk.filedialog.askdirectory()
-    # Update listbox or perform file operations based on selected directory
+# Input for folder name
+folder_label = tk.Label(root, text="Name of your new folder:")
+folder_label.pack()
+folder_entry = tk.Entry(root)
+folder_entry.pack()
 
-def list_files(directory):
-    files = os.listdir(directory)
-    tk.Listbox.delete(0, tk.END)  # Clear listbox contents
-    for file in files:
-        tk.Listbox.insert(tk.END, file)
+# Radio buttons for project types
+project_type_var = tk.StringVar()
+animation_button = tk.Radiobutton(root, text="Animation", variable=project_type_var, value="animation")
+animation_button.pack()
 
-def navigate_to_dir(directory):
-    list_files(directory)  # Update listbox with files in the new directory
+gaming_button = tk.Radiobutton(root, text="Gaming", variable=project_type_var, value="gaming")
+gaming_button.pack()
 
+hr_button = tk.Radiobutton(root, text="Human Resources", variable=project_type_var, value="human resources")
+hr_button.pack()
 
-browse_button = tk.Button(root, text="Browse", command=browse_directory)
-browse_button.pack()
+# Result label
+result_label = tk.Label(root, text="")
+result_label.pack()
 
-dir_entry = tk.Entry(root, width=50)
-dir_entry.pack()
-
-navigate_button = tk.Button(root, text="Navigate", command=lambda: navigate_to_dir(dir_entry.get()))
-navigate_button.pack()
-
-listbox = tk.Listbox(root)
-listbox.pack()
-
+# Create folder button
+create_button = tk.Button(root, text="Create Folder", command=create_folder)
+create_button.pack()
 
 root.mainloop()
