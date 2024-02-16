@@ -2,8 +2,8 @@
 
 ### Description
 
-I created a script for a file management system for a large-scale project which install nested folders and some generic files, when a user creates a new directory. Also made have pop-up Graphic User Interface for the script. 
-I have a script that scrapes data images from a website https://pokemondb.net/pokedex/national. where I resize the images to 300 x 300 and add the name of the pokemon to the image itself.
+I created a script for a file management system for a large-scale project which install nested folders and some generic files, when a user creates a new directory. Also made a pop-up Graphic User Interface(GUI) for the script. 
+I have a script that scrapes data images from a website https://pokemondb.net/pokedex/national. were I resize the images to 300 x 300 and add the name of the pokemon to the image itself.
 
 ### Installation
  #### For windows
