@@ -2,19 +2,24 @@
 
 
 def animation(path):
-    animation_path = path / "Animation"  # Use pathlib for concise path joining
+    '''
+    animation function contains the scripted folders that will be created for animation folder
+    Parameter: path which it the directory path that is created by user 
+    '''
+
+    animation_path = path / "Animation" 
     animation_path.mkdir(parents=True, exist_ok=True)
-    pre_production_path = animation_path / "Pre-production"  # Use pathlib for concise path joining
+    pre_production_path = animation_path / "Pre-production" 
     pre_production_path.mkdir(parents=True, exist_ok=True)
-    idea_path = pre_production_path /"Idea"  # Use pathlib for concise path joining
+    idea_path = pre_production_path /"Idea"  
     idea_path.mkdir(parents=True, exist_ok=True) 
-    script_path = pre_production_path /"Scripts"  # Use pathlib for concise path joining
+    script_path = pre_production_path /"Scripts"  
     script_path.mkdir(parents=True, exist_ok=True)  
-    storyboard_path = pre_production_path /"Storyboard"  # Use pathlib for concise path joining
+    storyboard_path = pre_production_path /"Storyboard"  
     storyboard_path.mkdir(parents=True, exist_ok=True)  
 
 
-    production_path = animation_path / "Production"  # Use pathlib for concise path joining
+    production_path = animation_path / "Production"  
     production_path.mkdir(parents=True, exist_ok=True) 
     illustration_path = production_path /"Illustration"  
     illustration_path.mkdir(parents=True, exist_ok=True)

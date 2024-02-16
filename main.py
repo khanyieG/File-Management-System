@@ -5,6 +5,11 @@ from gaming import *
 
 
 def create_new_dir():
+
+    '''
+    Create new directory function is were we get the use input to create a new folder/directory
+    '''
+
     new_folder = input("Name of your new folder: ")
     new_dir = Path(new_folder)
     try:
@@ -17,6 +22,14 @@ def create_new_dir():
     return new_folder
 
 def project_type(path):
+
+    ''' 
+    project type function is where we want to know what kind of a project/folder do they want in 
+    in there new directory
+
+    parameter: path of the new directory created by the user
+    '''
+
     select_folder = str(input("\nWhat kind of project do you want to create?:\nAnimation\nGaming\nhuman resources\n")).lower()
     if select_folder == "animation":
         animation(path)
