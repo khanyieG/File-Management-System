@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-image_path = Path('Images')
+image_path = Path('Pokemon_mages')
 image_path.mkdir(parents=True, exist_ok=True)
 
 driver = webdriver.Chrome()
