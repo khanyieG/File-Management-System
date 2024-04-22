@@ -45,11 +45,4 @@ I have a script that scrapes data images from a website https://pokemondb.net/po
 * cd image_script
 * python3 main.py
 
-### Acknowledment
-* Stack over flow
-* ioflood.com (Python pathlib module)
-* freeCodeCamp (create directory)
-* geeksforgeeks
-* YouTube
-* Gemini AI
-* ChatGPT AI
+
